@@ -29,6 +29,32 @@ class LinkedList {
     this.length++;
   }
 
+  insert(index, value) {
+    // if provided index is out of range on upper boundary, append to end of list
+    if (index >= this.length) {
+      return this.append(value);
+    }
+
+    // if the index is 0, just call the prepend method
+    if (index === 0) {
+      return this.prepend(value);
+    }
+
+    const newNode = new Node(value);
+
+    // get the node just before the index where the new node is to be inserted
+    const leader = this.traverseToIndex(index - 1);
+
+    // get the node that is currently being pointed to by the leader's next property
+    const trailingNode = leader.next;
+
+    // point the leaders next property to the new node being inserted
+    leader.next = newNode;
+
+    // point the new nodes next property to the node that the leader previously pointed to
+    newNode.next = trailer;
+  }
+
   traverseToIndex(index) {
     // variable to keep track of current node -- start at the head of the linked list
     let current = this.head;
