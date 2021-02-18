@@ -28,6 +28,19 @@ class LinkedList {
     this.head = newNode;
     this.length++;
   }
+
+  traverseToIndex(index) {
+    // variable to keep track of current node -- start at the head of the linked list
+    let current = this.head;
+    for (let i = 0; i <= index; i++) {
+      if (i === index) {
+        // if index is found, return the node
+        return current;
+      }
+      // reference the next node in the list for the next loop iteration
+      current = current.next;
+    }
+  }
 }
 
 module.exports = LinkedList;
