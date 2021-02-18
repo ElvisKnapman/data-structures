@@ -18,6 +18,16 @@ class LinkedList {
 
     this.length++;
   }
+
+  prepend(value) {
+    const newNode = new Node(value);
+
+    // point the next property of the new node to the node that is currently the head
+    newNode.next = this.head;
+    // head property will reference the newly created node object
+    this.head = newNode;
+    this.length++;
+  }
 }
 
 module.exports = LinkedList;
