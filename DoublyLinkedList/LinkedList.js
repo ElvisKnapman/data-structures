@@ -26,8 +26,12 @@ class DoublyLinkedList {
   prepend(value) {
     const newNode = new Node(value);
 
+    // point current head prev property to the new node being prepended
+    this.head.prev = newNode;
+
     // point the next property of the new node to the node that is currently the head
     newNode.next = this.head;
+
     // head property will reference the newly created node object
     this.head = newNode;
     this.length++;
