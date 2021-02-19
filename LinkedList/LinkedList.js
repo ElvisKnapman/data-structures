@@ -55,6 +55,33 @@ class LinkedList {
     newNode.next = trailer;
   }
 
+  remove(index) {
+    // if the head node should be removed, change the head property to reference the node the current head node points to in its next property
+    if (index === 0) {
+      return (this.head = this.traverseToIndex(1));
+    }
+    // if length is out of bounds on the upper boundary, remove last node
+    if (index >= this.length) {
+      // reference the node preceding the node that is to be removed
+      const leader = this.traverseToIndex(this.length - 1);
+      // the node to be removed will be in the next property of the leader node
+      const nodeToRemove = leader.next;
+      // remove the node by pointing the leading nodes next property to the next node of the node that is being removed
+      leader.next = nodeToRemove.next;
+      return;
+    }
+
+    // reference the node preceding the node that is to be removed
+    const leader = this.traverseToIndex(index - 1);
+    // the node to be removed will be in the next property of the leader node
+    const nodeToRemove = leader.next;
+
+    // point the leaders next property to the node in the next property of the node that is being removed
+    leader.next = nodeToRemove.next;
+    this.length--;
+    return;
+  }
+
   traverseToIndex(index) {
     // variable to keep track of current node -- start at the head of the linked list
     let current = this.head;
