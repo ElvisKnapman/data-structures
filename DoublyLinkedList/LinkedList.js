@@ -79,6 +79,8 @@ class DoublyLinkedList {
 
       // set the prev property of the new head node to null
       this.head.prev = null;
+
+      this.length--;
       return;
     }
     // if length is out of bounds on the upper boundary, remove last node
@@ -91,16 +93,26 @@ class DoublyLinkedList {
 
       // assign tail property to be the new tail
       this.tail = newTail;
+
+      this.length--;
       return;
     }
 
     // reference the node preceding the node that is to be removed
     const leader = this.traverseToIndex(index - 1);
+
     // the node to be removed will be in the next property of the leader node
     const nodeToRemove = leader.next;
 
-    // point the leaders next property to the node in the next property of the node that is being removed
-    leader.next = nodeToRemove.next;
+    // get trailing node (node after the node that is being removed)
+    const trailingNode = nodeToRemove.next;
+
+    // point the leaders next property to the trailing node
+    leader.next = trailingNode;
+
+    // point the trailing node prev property to the leader node (skipping over the node that is being removed)
+    trailingNode.prev = leader;
+
     this.length--;
     return;
   }
