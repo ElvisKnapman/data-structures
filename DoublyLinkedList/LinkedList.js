@@ -59,8 +59,14 @@ class DoublyLinkedList {
     // point the leaders next property to the new node being inserted
     leader.next = newNode;
 
+    // point the new nodes prev property to the leader node
+    newNode.prev = leader;
+
     // point the new nodes next property to the node that the leader previously pointed to
     newNode.next = trailingNode;
+
+    // point the trailing nodes prev property to the new node being inserted
+    trailingNode.prev = newNode;
   }
 
   remove(index) {
