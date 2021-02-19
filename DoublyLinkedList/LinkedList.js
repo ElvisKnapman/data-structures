@@ -72,7 +72,12 @@ class DoublyLinkedList {
   remove(index) {
     // if the head node should be removed, change the head property to reference the node the current head node points to in its next property
     if (index === 0) {
-      return (this.head = this.traverseToIndex(1));
+      // point head property to the node after the current head
+      this.head = this.head.next;
+
+      // set the prev property of the new head node to null
+      this.head.prev = null;
+      return;
     }
     // if length is out of bounds on the upper boundary, remove last node
     if (index >= this.length) {
