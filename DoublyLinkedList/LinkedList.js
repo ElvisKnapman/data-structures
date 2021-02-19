@@ -11,8 +11,12 @@ class DoublyLinkedList {
   append(value) {
     const newNode = new Node(value);
 
+    // new node should reference the current tail in for its previous property
+    newNode.prev = this.tail;
+
     // object currently reference by tail, update its next property to point to the new node (new node will be the new tail)
     this.tail.next = newNode;
+
     // change the tail to reference the newly created node
     this.tail = newNode;
 
