@@ -52,7 +52,7 @@ class LinkedList {
     leader.next = newNode;
 
     // point the new nodes next property to the node that the leader previously pointed to
-    newNode.next = trailer;
+    newNode.next = trailingNode;
   }
 
   remove(index) {
