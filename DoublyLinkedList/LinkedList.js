@@ -67,6 +67,8 @@ class DoublyLinkedList {
 
     // point the trailing nodes prev property to the new node being inserted
     trailingNode.prev = newNode;
+
+    this.length++;
   }
 
   remove(index) {
