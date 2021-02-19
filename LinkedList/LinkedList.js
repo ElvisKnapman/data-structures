@@ -53,6 +53,8 @@ class LinkedList {
 
     // point the new nodes next property to the node that the leader previously pointed to
     newNode.next = trailingNode;
+
+    this.length++;
   }
 
   remove(index) {
