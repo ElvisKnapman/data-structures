@@ -61,6 +61,7 @@ class LinkedList {
     // if the head node should be removed, change the head property to reference the node the current head node points to in its next property
     if (index === 0) {
       return (this.head = this.traverseToIndex(1));
+      this.length--;
     }
     // if length is out of bounds on the upper boundary, remove last node
     if (index >= this.length) {
@@ -72,6 +73,8 @@ class LinkedList {
 
       // assign tail property to be the new tail
       this.tail = newTail;
+
+      this.length--;
       return;
     }
 
