@@ -81,12 +81,14 @@ class DoublyLinkedList {
     }
     // if length is out of bounds on the upper boundary, remove last node
     if (index >= this.length) {
-      // reference the node preceding the node that is to be removed
-      const leader = this.traverseToIndex(this.length - 1);
-      // the node to be removed will be in the next property of the leader node
-      const nodeToRemove = leader.next;
-      // remove the node by pointing the leading nodes next property to the next node of the node that is being removed
-      leader.next = nodeToRemove.next;
+      // reference the node preceding the current tail
+      const newTail = this.traverseToIndex(this.length - 2);
+
+      // point to null on the new tail next property
+      newTail.next = null;
+
+      // assign tail property to be the new tail
+      this.tail = newTail;
       return;
     }
 
