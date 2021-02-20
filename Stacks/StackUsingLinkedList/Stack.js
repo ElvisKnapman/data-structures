@@ -12,7 +12,7 @@ class Stack {
   }
 
   push(value) {
-    // if there is a valid value
+    // if there isn't a valid value
     if (value === undefined || value === null) {
       throw new Error('Not a valid value. Was not pushed to the stack.');
     }
@@ -20,7 +20,7 @@ class Stack {
     const newNode = new Node(value);
 
     if (this.length === 0) {
-      // if there's no nodes in the stack point the top and bottom properties to the new node
+      // if there's no nodes in the stack, point the top and bottom properties to the new node
       this.top = newNode;
       this.bottom = newNode;
     } else {
