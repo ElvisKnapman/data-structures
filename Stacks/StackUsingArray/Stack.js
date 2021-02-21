@@ -25,6 +25,10 @@ class Stack {
     // return the new length of the stack
     return this.data.length;
   }
+
+  pop() {
+    return this.data.pop();
+  }
 }
 
 module.exports = Stack;
