@@ -35,6 +35,23 @@ class Stack {
     this.length++;
     return this;
   }
+
+  pop() {
+    // if there are no nodes in the stack return null
+    if (!this.top) {
+      return null;
+    }
+
+    // save reference to current top node to be able to return in
+    const removedNode = this.top;
+
+    // make the top node the next node the current top points to (so when the current top gets popped off, the node below becomes the top)
+    this.top = this.top.next;
+
+    this.length--;
+
+    return removedNode;
+  }
 }
 
 module.exports = Stack;
