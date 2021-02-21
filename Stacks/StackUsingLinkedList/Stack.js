@@ -42,7 +42,12 @@ class Stack {
       return null;
     }
 
-    // save reference to current top node to be able to return in
+    // if there is only one node in the stack, when it is popped, set the bottom property to null
+    if (this.length === 1) {
+      this.bottom = null;
+    }
+
+    // save reference to current top node to be able to return it
     const removedNode = this.top;
 
     // make the top node the next node the current top points to (so when the current top gets popped off, the node below becomes the top)
