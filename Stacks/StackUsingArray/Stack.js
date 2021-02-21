@@ -12,6 +12,19 @@ class Stack {
     // if there are items, return the last item on the stack
     return this.data[length - 1];
   }
+
+  push(value) {
+    // if value passed is valid, push onto the stack
+    if (value !== undefined || value !== null) {
+      this.data.push(value);
+    } else {
+      throw new Error(
+        'Invalid value provided. Could not be added to the stack'
+      );
+    }
+    // return the new length of the stack
+    return this.data.length;
+  }
 }
 
 module.exports = Stack;
