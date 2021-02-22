@@ -12,36 +12,36 @@ class BinarySearchTree {
     // if there is no root node, insert the new node at the root
     if (this.root === null) {
       this.root = newNode;
-      return this.root;
+      return this;
     }
 
     // get the root node for iteration
-    let current = this.root;
+    let currentNode = this.root;
 
     // while there is a node
-    while (current) {
-      if (value === current.value) {
+    while (currentNode) {
+      if (value === currentNode.value) {
         return;
 
         // if the value is greater than the value in the current node
-      } else if (value > current.value) {
+      } else if (value > currentNode.value) {
         // if the right property of the current node is null, insert new node reference in that property
-        if (current.right === null) {
-          current.right = newNode;
+        if (currentNode.right === null) {
+          currentNode.right = newNode;
           return this;
         }
         // go right and set the current node to look at to that right node
-        current = current.right;
+        currentNode = currentNode.right;
 
         // if the value is less than the value in the current node
-      } else if (value < current.value) {
+      } else {
         // if the left property of the current node is null, insert new node reference in that property
-        if (current.left === null) {
-          current.left = newNode;
+        if (currentNode.left === null) {
+          currentNode.left = newNode;
           return this;
         }
         // go left and set the current node to look at to that left node
-        current = current.left;
+        currentNode = currentNode.left;
       }
     }
   }
