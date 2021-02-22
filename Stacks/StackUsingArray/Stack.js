@@ -15,7 +15,7 @@ class Stack {
 
   push(value) {
     // if value passed is valid, push onto the stack
-    if (value !== undefined || value !== null) {
+    if (value !== undefined && value !== null) {
       this.data.push(value);
     } else {
       throw new Error(
