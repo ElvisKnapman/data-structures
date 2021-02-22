@@ -45,6 +45,33 @@ class BinarySearchTree {
       }
     }
   }
+
+  lookup(value) {
+    // if BST is empty
+    if (this.root === null) {
+      return false;
+    }
+
+    // start at the root node
+    let currentNode = this.root;
+
+    // while there is a node
+    while (currentNode) {
+      if (value === currentNode.value) {
+        return currentNode;
+      }
+
+      // if the value provided is greater than the current node value, look at the right property of the current node
+      if (value > currentNode.value) {
+        currentNode = currentNode.right;
+
+        // same as above but to the left side
+      } else if (value < currentNode.value) {
+        currentNode = currentNode.left;
+      }
+    }
+    return false;
+  }
 }
 
 module.exports = BinarySearchTree;
