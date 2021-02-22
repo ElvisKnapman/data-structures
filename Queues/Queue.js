@@ -31,6 +31,20 @@ class Queue {
     // regardless of above insert conditionals, increment the length of the queue
     this.length++;
   }
+
+  dequeue() {
+    if (this.length === 0) {
+      return "Can't dequeue, queue is already empty.";
+    }
+
+    if (this.length === 1) {
+      // only one node in queue, set last to null
+      this.last = null;
+    }
+    // first in queue becomes the node that the existing first node was pointing to in its next property
+    this.first = this.first.next;
+    this.length--;
+  }
 }
 
 module.exports = Queue;
